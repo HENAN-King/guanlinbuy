@@ -1,4 +1,4 @@
-package com.sjx.guanlinbuy.controller;
+package com.guanlinbuy.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

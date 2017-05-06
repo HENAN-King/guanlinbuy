@@ -1,4 +1,4 @@
-package com.sjx.guanlinbuy.config.properties;
+package com.guanlinbuy.config.properties;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;

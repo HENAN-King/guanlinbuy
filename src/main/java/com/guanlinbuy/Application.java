@@ -1,4 +1,4 @@
-package com.sjx.guanlinbuy;
+package com.guanlinbuy;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
