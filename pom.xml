@@ -33,7 +33,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<mainClass>com.sjx.guanlinbuy.Application</mainClass>
+					<mainClass>com.guanlinbuy.Application</mainClass>
 				</configuration>
 				<executions>
 					<execution>
