@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="GBK" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+    <appender name="ROLLING" class="org.apache.log4j.RollingFileAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} %5p %c{1} - %m%n"/>
+        </layout>
+        <param name="File" value="D:/logs/server.log"/>
+        <param name="MaxFileSize" value="50MB"/>
+        <param name="MaxBackupIndex" value="9"/>
+    </appender>
+
+    <appender name="DAILY_LUA" class="org.apache.log4j.DailyRollingFileAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} %5p %c{1} - %m%n"/>
+        </layout>
+        <param name="File" value="D:/logs/record.log"/>
+    </appender>
+
+    <appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} %5p %c{1} - %m%n"/>
+        </layout>
+        <param name="Threshold" value="info"/>
+    </appender>
+
+    <appender name="ASYNC" class="org.apache.log4j.AsyncAppender">
+        <param name="BufferSize" value="100000"/>
+        <param name="Blocking" value="false"/>
+        <appender-ref ref="ROLLING"/>
+        <appender-ref ref="CONSOLE"/>
+    </appender>
+
+    <appender name="ASYNC_LUA" class="org.apache.log4j.AsyncAppender">
+        <param name="BufferSize" value="100000"/>
+        <param name="Blocking" value="false"/>
+        <appender-ref ref="DAILY_LUA"/>
+    </appender>
+
+    <root>
+        <level value="info"/>
+        <appender-ref ref="ASYNC"/>
+    </root>
+
+    <logger name="main">
+        <level value="info"/>
+    </logger>
+
+    <logger name="record">
+        <level value="info"/>
+        <appender-ref ref="ASYNC_LUA" />
+    </logger>
+</log4j:configuration>
