@@ -14,7 +14,15 @@ public class GoodsService {
 	@Autowired
 	private GoodsMapper goodsMapper;
 
-	public List<Goods> selectAllGoods() {
-		return goodsMapper.selectAll();
+	public List<Goods> selectAllGoods(int start, int size) {
+		return goodsMapper.selectAll(start, size);
+	}
+
+	public int updateStat(Goods goods) {
+		return goodsMapper.updateStat(goods);
+	}
+
+	public Goods findById(Long id) {
+		return goodsMapper.findById(id);
 	}
 }
